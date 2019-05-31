@@ -9,11 +9,11 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
-  // Solution code here...
+  return callback(message)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,11 +33,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for(var i = 0; i < times; i++){
+    callback(arr, num);
+  }
+ return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,11 +56,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if (num % 3 == 2){
+      arr.pop();
+  }
 };
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+  arr.forEach(num => callback(num,arr));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +73,8 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+  arr.forEach(num => callback(num, arr));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,7 +88,11 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+arr.forEach(num => {
+    if (num % 3 == 2)
+        arr.pop();
+});
+   return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +113,15 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+    // Create a blank array
+    let availableInventory = [];
+
+    //Loop through every item in the inventory
+    availableItems.forEach(itemName => {
+        if (itemName.available === true) 
+            availableInventory.push(itemName.name);
+        });
+        return availableInventory;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +139,20 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let outputArray = [];
+  arr.forEach(arrayNumber => {
+
+      if (arrayNumber % 3 === 0 && arrayNumber % 5 === 0)
+         outputArray.push("Fizz Buzz");
+         else if (arrayNumber % 3 === 0)
+                 outputArray.push("Fizz");
+                 else if (arrayNumber % 5 === 0)
+                          outputArray.push("Buzz");
+                          else
+                          outputArray.push(arrayNumber);
+
+  });
+  return outputArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
